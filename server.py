@@ -105,7 +105,7 @@ def wishes():
     query="""Select wishes.id, wishes.wish, wishes.wish_description, wishes.created_at, wishes.updated_at, wishes.date_granted, wishes.wisher_id, users.id, users.f_name
                 From wishes
                 left JOIN users ON wisher_id = users.id
-                Where wishes.date_granted = '1'"""
+                Where wishes.date_granted IS NOT 'NULL'"""
     mysql=connectToMySQL(SCHEMA)
     all_wishes=mysql.query_db(query)
     return render_template('wishes.html', a_w=all_wishes, y_w=your_wishes)
