@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Dojo Exam ... take 2</title>
+
+</head>
+<body>
+    <div class="card-body px-lg-5 pt-0" style="width: 400px; display: inline-block; vertical-align: top" >
+        <form class="md-form" style="color: #757575;" action="/register" method="post">
+        <h1>Registration</h1>
+        <hr>
+            {% with messages = get_flashed_messages(category_filter=["registration"]) %}
+            {% if messages %}
+                <img src="https://media.giphy.com/media/5ftsmLIqktHQA/giphy.gif" alt='image'>
+                <ul class=flashes>
+                    {% for message in messages %}
+                    <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+            {% endwith %}
+        
+    
+            <input type="text" id="materialRegisterFormFirstName" name="f_name" placeholder="Michael" class="form-control" >
+            <label for="materialRegisterFormFirstName" >First name</label>
+
+            <input type="text" id="materialRegisterFormLastName" class="form-control" name="l_name" placeholder="Murray">
+            <label for="materialRegisterFormLastName">Last name</label>
+
+            <input type="email" id="materialRegisterFormEmail" class="form-control" name="e_mail" placeholder="me@me.com">
+            <label for="materialRegisterFormEmail">E-mail</label>
+
+            <input type="password" id="materialRegisterFormPassword" class="form-control" aria-describedby="materialRegisterFormPasswordHelpBlock" name="password" placeholder="">
+            <label for="materialRegisterFormPassword">Password</label>
+
+            <small id="materialRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
+                At least 8 characters and 1 digit
+            </small>
+
+            <input type="password" id="materialRegisterFormConfirmPassword" class="form-control" aria-describedby="materialRegisterFormPasswordHelpBlock" name="c_password" placeholder="">
+            <label for="materialRegisterFormPassword">Confirm Password</label>
+
+            <small id="materialRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
+                At least 8 characters and 1 digit that reflects Password
+            </small>
+    
+            <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit">Sign up</button>
+        </form>
+    </div>
+    <div class="card-body px-lg-5 pt-0" style="width: 400px; display: inline-block; vertical-align: top" >
+            <form class="md-form" style="color: #757575;" action="/login" method="post">
+        <h1>Login</h1>
+        <hr>
+        {% with messages = get_flashed_messages(category_filter=["login"]) %}
+        {% if messages %}
+            <img src="https://media.giphy.com/media/5ftsmLIqktHQA/giphy.gif" alt='image'>
+            <ul class=flashes>
+                
+                {% for message in messages %}
+                <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            <hr>
+        {% endif %}
+        {% endwith %}
+        <input type="email" id="materialLoginFormEmail" class="form-control" name="e_mail" placeholder="me@me.com">
+        <label for="materialLoginFormEmail">E-mail</label>
+
+
+        <input type="password" id="materialLoginFormPassword" class="form-control" name="password" placeholder="you don't know me">
+        <label for="materialLoginFormPassword">Password</label>
+        <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit">Sign in</button>
+    </div>
+</body>
+</html>
